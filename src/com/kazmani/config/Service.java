@@ -52,8 +52,7 @@ public class Service {
 	Credentials credentials = gson.fromJson(jSonCredentials,
 		Credentials.class);
 	Login loginResponse = loginService.authenticate(credentials);
-	String s = gson.toJson(loginResponse);
-	return s;
+	return gson.toJson(loginResponse);
     }
 
     /**
