@@ -77,13 +77,6 @@ public class Service {
 	Therapist therapistStatus = therapistService.checkStatus(phoneNumber);
 	return gson.toJson(therapistStatus);
     }
-
-    @GET
-    @Path("/test")
-    @Produces(MediaType.TEXT_PLAIN)
-    public String test(@QueryParam("testId") String phoneNumber) {
-	return "Hello,your id = "+phoneNumber;
-    }
     
     @GET
     @Path("/therapist/getbynumber") 
