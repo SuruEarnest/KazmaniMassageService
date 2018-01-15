@@ -1,6 +1,6 @@
 package com.kazmani.config;
 
-import java.io.InputStream;  
+import java.io.InputStream;   
 import java.sql.SQLException;
 import java.util.ArrayList;
 
