@@ -8,6 +8,7 @@ public class Address {
 	private String localGovt;
 	private String description;
 	private String country;
+	private Location location;
 
 	public Address() {
 
@@ -73,6 +74,14 @@ public class Address {
 	 */
 	public String getCountry() {
 		return country;
+	}
+
+	public Location getLocation() {
+	    return location;
+	}
+
+	public void setLocation(Location location) {
+	    this.location = location;
 	}
 
 }

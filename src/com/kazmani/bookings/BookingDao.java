@@ -19,13 +19,7 @@ public class BookingDao implements IBooking {
     private PreparedStatement pre = null, ps = null;
     private ResultSet rs = null;
 
-    public Booking bookMassage(/*
-			        * String clientPhoneNumber, String timeLength,
-			        * String sessionType, Date date, String
-			        * therapistId, String massageId, String
-			        * timeSpecified, String status, double latitude,
-			        * double longitude, int defaultAddressChecker
-			        */Booking bk) throws SQLException {
+    public Booking bookMassage(Booking bk) throws SQLException {
 
 	Booking bkRespnse = new Booking();
 	String sql = "insert into BOOKINGS_TB(CLIENT_PHONE,MASSAGE_ID,"
