@@ -176,6 +176,15 @@ public class BookingDao implements IBooking {
 	// TODO Auto-generated method stub
 	return null;
     }
+    
+    @Override
+    public Booking editBookedMassage(Booking bk) {
+	// TODO Auto-generated method stub
+	String sql="UPDATE BOOKINGS_TB SET MASSAGE_ID=?,"
+		+ "THERAPIST_ID=?,MS_DATE=?,TIME_LENGTH=?,"
+		+ "TIME_SPECIFIED=?,SESSION_TYPE=?,STATUS=?,LOCATION=? where CLIENT_PHONE=? ";
+	return null;
+    }
 
     public static void main(String args[]) {
 
@@ -184,4 +193,6 @@ public class BookingDao implements IBooking {
 	bk.setClientPhoneNumber("");
 
     }
+
+   
 }

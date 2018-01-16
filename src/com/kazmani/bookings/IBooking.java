@@ -1,6 +1,5 @@
 package com.kazmani.bookings;
 
-import java.sql.Date; 
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -17,5 +16,7 @@ public interface IBooking {
 	public ArrayList<Booking> getAllBookingsByClientId(String phoneNumber);
 
 	public Booking editBookedMassage(String bookingId);
+
+	Booking editBookedMassage(Booking bk);
 
 }
