@@ -8,6 +8,7 @@ public class Qualification implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	private String id;
 	private String email;
 	private String phoneNumber;
 	private String discipline;// science,engineering,commercial,arts,computer
@@ -113,6 +114,14 @@ public class Qualification implements Serializable {
 	 */
 	public void setErrorCode(String errorCode) {
 		this.errorCode = errorCode;
+	}
+
+	public String getId() {
+	    return id;
+	}
+
+	public void setId(String id) {
+	    this.id = id;
 	}
 
 }

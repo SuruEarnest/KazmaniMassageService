@@ -1,6 +1,6 @@
 package com.kazmani.qualification;
 
-import java.sql.Connection;
+import java.sql.Connection; 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -48,10 +48,37 @@ public class QualificationDao implements IQualification {
     }
 
     @Override
-    public Qualification updateQualificationById(String phoneNumberOrEmail,
-	    Qualification q) {
+    public Qualification updateQualificationById(Qualification q) {
 	// TODO Auto-generated method stub
-	return null;
+	Qualification qualification = new Qualification();
+	PreparedStatement qSt = null;
+	String query = "UPDATE QUALIFICATIONS_TB SET DISCIPLINE=?,TYPE=?,YEAR=? where EMAIL=? OR PHONE_NUMBER=? ";
+	conn = connector.makeConnection();
+	try {
+	    conn.setAutoCommit(false);
+	    qSt = conn.prepareStatement(query);
+	    qSt.setString(1, q.getDiscipline());
+	    qSt.setString(2, q.getType());
+	    qSt.setString(3, q.getYear());
+	    qSt.setString(4, q.getId());
+	    qSt.setString(5, q.getId());
+	    qSt.executeUpdate();
+	    conn.commit();
+	    qualification.setMessage("qualifications successfully updated!");
+	    return qualification;
+	} catch (SQLException e) {
+	    // TODO Auto-generated catch block
+	    e.printStackTrace();
+	    qualification.setErrorMessage("Error occured due to:"+e.getMessage());
+            return qualification;
+            
+	} finally {
+	    connector.release(qSt);
+	    connector.release(conn);
+
+	}
+	
+
     }
 
     @Override
@@ -59,7 +86,7 @@ public class QualificationDao implements IQualification {
 	    throws SQLException {
 	// TODO Auto-generated method stub
 	PreparedStatement pst = null;
-	Qualification q = new Qualification();
+	Qualification qualification = new Qualification();
 	String query = "DELETE from QUALIFICATIONS_TB where PHONE_NUMBER=? or EMAIL=? ";
 	try {
 	    conn = connector.makeConnection();
@@ -69,14 +96,14 @@ public class QualificationDao implements IQualification {
 	    pst.setString(1, phoneNumberOrEmail);
 	    pst.executeUpdate();
 	    conn.commit();
-	    q.setMessage("qualification has been successfully deleted!");
-	    return q;
+	    qualification.setMessage("qualification has been successfully deleted!");
+	    return qualification;
 	} catch (SQLException e) {
 	    // TODO Auto-generated catch block
 	    conn.rollback();
-	    q.setErrorMessage("Error caused due to:" + e.getMessage());
+	    qualification.setErrorMessage("Error caused due to:" + e.getMessage());
 	    e.printStackTrace();
-	    return q;
+	    return qualification;
 	} finally {
 	    connector.release(conn);
 	    connector.release(pst);
@@ -90,7 +117,7 @@ public class QualificationDao implements IQualification {
 	String query = "SELECT * from QUALIFICATIONS_TB where EMAil=? or PHONE_NUMBER=?";
 	PreparedStatement pst = null;
 	ResultSet rs = null;
-	Qualification q = new Qualification();
+	Qualification qualification = new Qualification();
 	conn = connector.makeConnection();
 	try {
 	    pst = conn.prepareStatement(query);
@@ -101,32 +128,32 @@ public class QualificationDao implements IQualification {
 	    if (rs.next() == true) {
 		do {
 
-		    q.setDiscipline(rs.getString("DISCIPLINE"));
-		    q.setEmail(rs.getString("EMAIL"));
-		    q.setPhoneNumber(rs.getString("PHONE_NUMBER"));
-		    q.setType(rs.getString("TYPE"));
-		    q.setYear(rs.getString("YEAR"));
-		    q.setMessage("successfully fetched!");
-		    
+		    qualification.setDiscipline(rs.getString("DISCIPLINE"));
+		    qualification.setEmail(rs.getString("EMAIL"));
+		    qualification.setPhoneNumber(rs.getString("PHONE_NUMBER"));
+		    qualification.setType(rs.getString("TYPE"));
+		    qualification.setYear(rs.getString("YEAR"));
+		    qualification.setMessage("successfully fetched!");
+
 		} while (rs.next());
 
-		
 	    } else {
-		q.setMessage("No qualification matched the user's Id");
+		qualification
+			.setMessage("No qualification matched the user's Id");
 	    }
-	    return q;
+	    return qualification;
 	} catch (SQLException e) {
 	    // TODO Auto-generated catch block
-	    q.setErrorMessage("Error happened due to:"+e.getMessage());
+	    qualification.setErrorMessage("Error happened due to:"
+		    + e.getMessage());
 	    e.printStackTrace();
-	    return q;
-	}
-	finally{
+	    return qualification;
+	} finally {
 	    connector.release(conn);
 	    connector.release(pst);
 	    connector.release(rs);
 	}
-	
+
     }
 
 }
