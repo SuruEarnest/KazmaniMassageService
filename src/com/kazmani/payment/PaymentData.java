@@ -1,249 +1,242 @@
 package com.kazmani.payment;
 
-import java.io.Serializable;      
+import java.io.Serializable;
 import java.sql.Date;
 
 public class PaymentData implements Serializable {
 
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
+    
+    String senderId;
+    String senderCardNumber;
+    String senderCardExpirationDate;
+    String senderCardVerificationCode;
+    String beneficiaryBank;
+    String beneficiaryAcctNum;
+    String beneficiaryPhoneNumber;
+    double amount;
+    Date transactionDate;
+    String paymentDescription;
 
-	String senderId;
-	String senderCardNumber;
-	String senderCardExpirationDate;
-	String senderCardVerificationCode;
-	String beneficiaryBank;
-	String beneficiaryAcctNum;
-	String beneficiaryPhoneNumber;
-	double amount;
-	Date transactionDate;
-	String paymentDescription;
-	
-	String message;
-	String errorMessage;
-	
-	
-	/**
-	 * @param payerId
-	 * @param senderCardNumber
-	 * @param senderCardExpirationDate
-	 * @param senderCardVerificationCode
-	 * @param beneficiaryBank
-	 * @param beneficiaryAcctNum
-	 * @param beneficiaryPhoneNumber
-	 * @param amount
-	 * @param transactionDate
-	 * @param message
-	 * @param errorMessage
-	 */
+    String message;
+    String errorMessage;
 
-	public PaymentData(String senderId, String senderCardNumber,
-			String senderCardExpirationDate, String senderCardVerificationCode,
-			String beneficiaryBank, String beneficiaryAcctNum,
-			String beneficiaryPhoneNumber, double amount,
-			Date transactionDate,String paymentDescription ,String message, String errorMessage) {
+    /**
+     * @param payerId
+     * @param senderCardNumber
+     * @param senderCardExpirationDate
+     * @param senderCardVerificationCode
+     * @param beneficiaryBank
+     * @param beneficiaryAcctNum
+     * @param beneficiaryPhoneNumber
+     * @param amount
+     * @param transactionDate
+     * @param message
+     * @param errorMessage
+     */
 
-		this.senderId = senderId;
-		this.senderCardNumber = senderCardNumber;
-		this.senderCardExpirationDate = senderCardExpirationDate;
-		this.senderCardVerificationCode = senderCardVerificationCode;
-		this.beneficiaryBank = beneficiaryBank;
-		this.beneficiaryAcctNum = beneficiaryAcctNum;
-		this.beneficiaryPhoneNumber = beneficiaryPhoneNumber;
-		this.amount = amount;
-		this.transactionDate = transactionDate;
-		this.paymentDescription = paymentDescription;
-		this.message = message;
-		this.errorMessage = errorMessage;
-	
-	}
+    public PaymentData(String senderId, String senderCardNumber,
+	    String senderCardExpirationDate, String senderCardVerificationCode,
+	    String beneficiaryBank, String beneficiaryAcctNum,
+	    String beneficiaryPhoneNumber, double amount, Date transactionDate,
+	    String paymentDescription, String message, String errorMessage) {
 
-	public PaymentData() {
-	}
+	this.senderId = senderId;
+	this.senderCardNumber = senderCardNumber;
+	this.senderCardExpirationDate = senderCardExpirationDate;
+	this.senderCardVerificationCode = senderCardVerificationCode;
+	this.beneficiaryBank = beneficiaryBank;
+	this.beneficiaryAcctNum = beneficiaryAcctNum;
+	this.beneficiaryPhoneNumber = beneficiaryPhoneNumber;
+	this.amount = amount;
+	this.transactionDate = transactionDate;
+	this.paymentDescription = paymentDescription;
+	this.message = message;
+	this.errorMessage = errorMessage;
 
-	/**
-	 * @return the message
-	 */
-	public String getMessage() {
-		return message;
-	}
+    }
 
-	/**
-	 * @param message
-	 *            the message to set
-	 */
-	public void setMessage(String message) {
-		this.message = message;
-	}
+    public PaymentData() {
+    }
 
-	/**
-	 * @return the errorMessage
-	 */
-	public String getErrorMessage() {
-		return errorMessage;
-	}
+    /**
+     * @return the message
+     */
+    public String getMessage() {
+	return message;
+    }
 
-	/**
-	 * @param errorMessage
-	 *            the errorMessage to set
-	 */
-	public void setErrorMessage(String errorMessage) {
-		this.errorMessage = errorMessage;
-	}
+    /**
+     * @param message
+     *            the message to set
+     */
+    public void setMessage(String message) {
+	this.message = message;
+    }
 
+    /**
+     * @return the errorMessage
+     */
+    public String getErrorMessage() {
+	return errorMessage;
+    }
 
-	/**
-	 * @return the senderCardNumber
-	 */
-	public String getSenderCardNumber() {
-		return senderCardNumber;
-	}
+    /**
+     * @param errorMessage
+     *            the errorMessage to set
+     */
+    public void setErrorMessage(String errorMessage) {
+	this.errorMessage = errorMessage;
+    }
 
-	/**
-	 * @param senderCardNumber
-	 *            the senderCardNumber to set
-	 */
-	public void setSenderCardNumber(String senderCardNumber) {
-		this.senderCardNumber = senderCardNumber;
-	}
+    /**
+     * @return the senderCardNumber
+     */
+    public String getSenderCardNumber() {
+	return senderCardNumber;
+    }
 
-	/**
-	 * @return the senderCardExpirationDate
-	 */
-	public String getSenderCardExpirationDate() {
-		return senderCardExpirationDate;
-	}
+    /**
+     * @param senderCardNumber
+     *            the senderCardNumber to set
+     */
+    public void setSenderCardNumber(String senderCardNumber) {
+	this.senderCardNumber = senderCardNumber;
+    }
 
-	/**
-	 * @param senderCardExpirationDate
-	 *            the senderCardExpirationDate to set
-	 */
-	public void setSenderCardExpirationDate(String senderCardExpirationDate) {
-		this.senderCardExpirationDate = senderCardExpirationDate;
-	}
+    /**
+     * @return the senderCardExpirationDate
+     */
+    public String getSenderCardExpirationDate() {
+	return senderCardExpirationDate;
+    }
 
-	/**
-	 * @return the senderCardVerificationCode
-	 */
-	public String getSenderCardVerificationCode() {
-		return senderCardVerificationCode;
-	}
+    /**
+     * @param senderCardExpirationDate
+     *            the senderCardExpirationDate to set
+     */
+    public void setSenderCardExpirationDate(String senderCardExpirationDate) {
+	this.senderCardExpirationDate = senderCardExpirationDate;
+    }
 
-	/**
-	 * @param senderCardVerificationCode
-	 *            the senderCardVerificationCode to set
-	 */
-	public void setSenderCardVerificationCode(String senderCardVerificationCode) {
-		this.senderCardVerificationCode = senderCardVerificationCode;
-	}
+    /**
+     * @return the senderCardVerificationCode
+     */
+    public String getSenderCardVerificationCode() {
+	return senderCardVerificationCode;
+    }
 
-	/**
-	 * @return the beneficiaryBank
-	 */
-	public String getBeneficiaryBank() {
-		return beneficiaryBank;
-	}
+    /**
+     * @param senderCardVerificationCode
+     *            the senderCardVerificationCode to set
+     */
+    public void setSenderCardVerificationCode(String senderCardVerificationCode) {
+	this.senderCardVerificationCode = senderCardVerificationCode;
+    }
 
-	/**
-	 * @param beneficiaryBank
-	 *            the beneficiaryBank to set
-	 */
-	public void setBeneficiaryBank(String beneficiaryBank) {
-		this.beneficiaryBank = beneficiaryBank;
-	}
+    /**
+     * @return the beneficiaryBank
+     */
+    public String getBeneficiaryBank() {
+	return beneficiaryBank;
+    }
 
-	/**
-	 * @return the beneficiaryAcctNum
-	 */
-	public String getBeneficiaryAcctNum() {
-		return beneficiaryAcctNum;
-	}
+    /**
+     * @param beneficiaryBank
+     *            the beneficiaryBank to set
+     */
+    public void setBeneficiaryBank(String beneficiaryBank) {
+	this.beneficiaryBank = beneficiaryBank;
+    }
 
-	/**
-	 * @param beneficiaryAcctNum
-	 *            the beneficiaryAcctNum to set
-	 */
-	public void setBeneficiaryAcctNum(String beneficiaryAcctNum) {
-		this.beneficiaryAcctNum = beneficiaryAcctNum;
-	}
+    /**
+     * @return the beneficiaryAcctNum
+     */
+    public String getBeneficiaryAcctNum() {
+	return beneficiaryAcctNum;
+    }
 
-	/**
-	 * @return the beneficiaryPhoneNumber
-	 */
-	public String getBeneficiaryPhoneNumber() {
-		return beneficiaryPhoneNumber;
-	}
+    /**
+     * @param beneficiaryAcctNum
+     *            the beneficiaryAcctNum to set
+     */
+    public void setBeneficiaryAcctNum(String beneficiaryAcctNum) {
+	this.beneficiaryAcctNum = beneficiaryAcctNum;
+    }
 
-	/**
-	 * @param beneficiaryPhoneNumber
-	 *            the beneficiaryPhoneNumber to set
-	 */
-	public void setBeneficiaryPhoneNumber(String beneficiaryPhoneNumber) {
-		this.beneficiaryPhoneNumber = beneficiaryPhoneNumber;
-	}
+    /**
+     * @return the beneficiaryPhoneNumber
+     */
+    public String getBeneficiaryPhoneNumber() {
+	return beneficiaryPhoneNumber;
+    }
 
-	/**
-	 * @return the amount
-	 */
-	public double getAmount() {
-		return amount;
-	}
+    /**
+     * @param beneficiaryPhoneNumber
+     *            the beneficiaryPhoneNumber to set
+     */
+    public void setBeneficiaryPhoneNumber(String beneficiaryPhoneNumber) {
+	this.beneficiaryPhoneNumber = beneficiaryPhoneNumber;
+    }
 
-	/**
-	 * @param amount
-	 *            the amount to set
-	 */
-	public void setAmount(double amount) {
-		this.amount = amount;
-	}
+    /**
+     * @return the amount
+     */
+    public double getAmount() {
+	return amount;
+    }
 
-	/**
-	 * @return the transactionDate
-	 */
-	public Date getTransactionDate() {
-		return transactionDate;
-	}
+    /**
+     * @param amount
+     *            the amount to set
+     */
+    public void setAmount(double amount) {
+	this.amount = amount;
+    }
 
-	/**
-	 * @param transactionDate
-	 *            the transactionDate to set
-	 */
-	public void setTransactionDate(Date transactionDate) {
-		this.transactionDate = transactionDate;
-	}
+    /**
+     * @return the transactionDate
+     */
+    public Date getTransactionDate() {
+	return transactionDate;
+    }
 
-	/**
-	 * @return the paymentDescription
-	 */
-	public String getPaymentDescription() {
-		return paymentDescription;
-	}
+    /**
+     * @param transactionDate
+     *            the transactionDate to set
+     */
+    public void setTransactionDate(Date transactionDate) {
+	this.transactionDate = transactionDate;
+    }
 
-	/**
-	 * @param paymentDescription the paymentDescription to set
-	 */
-	public void setPaymentDescription(String paymentDescription) {
-		this.paymentDescription = paymentDescription;
-	}
+    /**
+     * @return the paymentDescription
+     */
+    public String getPaymentDescription() {
+	return paymentDescription;
+    }
 
-	/**
-	 * @return the senderId
-	 */
-	public String getSenderId() {
-		return senderId;
-	}
+    /**
+     * @param paymentDescription
+     *            the paymentDescription to set
+     */
+    public void setPaymentDescription(String paymentDescription) {
+	this.paymentDescription = paymentDescription;
+    }
 
-	/**
-	 * @param senderId the senderId to set
-	 */
-	public void setSenderId(String senderId) {
-		this.senderId = senderId;
-	}
+    /**
+     * @return the senderId
+     */
+    public String getSenderId() {
+	return senderId;
+    }
 
-	/**
-	 * @return the serialversionuid
-	 */
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
+    /**
+     * @param senderId
+     *            the senderId to set
+     */
+    public void setSenderId(String senderId) {
+	this.senderId = senderId;
+    }
 
 }

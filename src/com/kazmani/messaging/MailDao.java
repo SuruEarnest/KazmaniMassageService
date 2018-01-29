@@ -1,6 +1,6 @@
 package com.kazmani.messaging;
 
-import java.util.Properties;  
+import java.util.Properties;   
 
 import javax.mail.Authenticator;
 import javax.mail.MessagingException;

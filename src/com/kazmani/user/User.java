@@ -1,6 +1,6 @@
 package com.kazmani.user;
 
-import java.io.Serializable;      
+import java.io.Serializable;       
 
 import com.kazmani.credentials.Credentials;
 import com.kazmani.role.IRole;

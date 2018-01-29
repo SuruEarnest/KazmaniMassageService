@@ -1,6 +1,6 @@
 package com.kazmani.payment;
 
-import java.sql.Connection;
+import java.sql.Connection;     
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -11,6 +11,7 @@ import com.kazmani.config.Cypherizer;
 import com.kazmani.config.DbConnector;
 
 public class PaymentDao implements IPayment {
+    
     private DbConnector connector = new DbConnector();
     private Connection conn = null;
     private PreparedStatement pst = null;
@@ -50,7 +51,7 @@ public class PaymentDao implements IPayment {
 	    pst.setString(10, paymentDescription);
 	    pst.executeUpdate();
 	    conn.commit();
-	    payData.setMessage("Successful!");
+	    payData.setMessage("Payment Successful!");
 	    return payData;
 
 	} catch (SQLException e) {

@@ -1,6 +1,6 @@
 package com.kazmani.config;
 
-import java.io.InputStream;   
+import java.io.InputStream; 
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -42,7 +42,7 @@ public class Service {
     ContactDao contactService = new ContactDao();
     AccountDao accountService = new AccountDao();
     MailDao mailService = new MailDao();
-    
+
     @POST
     @Path("/login")
     @Consumes(MediaType.APPLICATION_JSON)
@@ -76,9 +76,9 @@ public class Service {
 	Therapist therapistStatus = therapistService.checkStatus(phoneNumber);
 	return gson.toJson(therapistStatus);
     }
-    
+
     @GET
-    @Path("/therapist/getbynumber") 
+    @Path("/therapist/getbynumber")
     @Produces(MediaType.APPLICATION_JSON)
     public String getTherapist(@QueryParam("phoneNumber") String phoneNumber) {
 	return gson.toJson(therapistService.getTherapistById(phoneNumber));
@@ -108,16 +108,16 @@ public class Service {
     @POST
     @Path("/therapist/addaccount")
     @Consumes(MediaType.APPLICATION_JSON)
-    public String createAccount(String jSonQualification) throws SQLException {
-	Account account = gson.fromJson(jSonQualification, Account.class);
+    public String createAccount(String jSonAccont) throws SQLException {
+	Account account = gson.fromJson(jSonAccont, Account.class);
 	return gson.toJson(accountService.createAccount(account));
     }
 
     @PUT
     @Path("/therapist/editaccount")
     @Consumes(MediaType.APPLICATION_JSON)
-    public String editAccount(String jSonQualification) throws SQLException {
-	Account account = gson.fromJson(jSonQualification, Account.class);
+    public String editAccount(String jSonAccont) throws SQLException {
+	Account account = gson.fromJson(jSonAccont, Account.class);
 	return gson.toJson(accountService.editAccountByPhoneNumber(account));
     }
 
@@ -233,28 +233,27 @@ public class Service {
     @GET
     @Path("booking/last")
     @Consumes(MediaType.APPLICATION_JSON)
-    public String getLastBooking() {
-	return "";
+    public String getLastBookingById(@QueryParam("phoneNumber") String phoneNumber) {
+	return gson.toJson(bookingService.getLastBookingByClientId(phoneNumber));
     }
 
     // request for massage
     @GET
     @Path("booking/all")
     @Consumes(MediaType.APPLICATION_JSON)
-    public String getAllbookings() {
-	return "";
+    public String getAllbookingsById(@QueryParam("phoneNumber") String phoneNumber) {
+         return gson.toJson(bookingService.getAllBookingsByClientId(phoneNumber));
     }
 
-    //handling mail messaging
+    // handling mail messaging
     @POST
     @Path("/messaging/mail")
     @Consumes(MediaType.APPLICATION_JSON)
-    public String sendMail(String jsonMail)
-    {
+    public String sendMail(String jsonMail) {
 	Mail email = gson.fromJson(jsonMail, Mail.class);
 	return gson.toJson(mailService.sendMail(email));
     }
-    
+
     // upload profile image for users
     @POST
     @Path("/uploadphoto")
@@ -268,9 +267,7 @@ public class Service {
 	Photo imageData = photoService.insertImage(imagId, image_File);
 	return gson.toJson(imageData);
     }
-    
-    
-   
+
 }
 
 /*

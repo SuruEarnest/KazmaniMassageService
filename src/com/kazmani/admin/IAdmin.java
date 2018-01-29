@@ -1,6 +1,6 @@
 package com.kazmani.admin;
 
-import com.kazmani.therapist.Therapist;
+import com.kazmani.therapist.Therapist; 
 import com.kazmani.user.User;
 
 /**
@@ -14,7 +14,8 @@ public interface IAdmin {
 	public Admin unblockUser(User user);
 	public Admin addNewAdmin(Admin adm);
 	public Admin validateTherapist(String phoneOrEmail);
-	
+	public Admin validateTherapist(Therapist thr);
+	public Admin payTherapistById(double amount,String therapistPhoneNumber);
 	
 	/**
 	 * 

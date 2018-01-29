@@ -1,6 +1,6 @@
 package com.kazmani.access;
 
-import java.sql.Connection;
+import java.sql.Connection; 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -29,17 +29,11 @@ public class LoginDao implements ILogin {
     private PreparedStatement trPreparedStatement = null;
     private ResultSet rs = null, rs2 = null, rs3 = null;
 
-    /**
-     * This method helps to authenticate users
-     * 
-     * @param uniqueLoginValue
-     *            the email or phone number of the user
-     * @param password
-     *            the password of the user
-     * @return a Login details class
-     * @throws SQLException
-     */
 
+     /**
+      * @param loginDetails takes in a Credentials object to authenticate users
+      * @return returns a Login object containing response message from the system
+      */
     public Login authenticate(Credentials loginDetails) throws SQLException {
 
 	Login loginData = new Login();

@@ -1,6 +1,6 @@
 package com.kazmani.contact;
 
-import java.io.Serializable;
+import java.io.Serializable; 
 
 import com.kazmani.address.Address;
 

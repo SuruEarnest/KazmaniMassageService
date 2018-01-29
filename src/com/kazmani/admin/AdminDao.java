@@ -1,8 +1,7 @@
 package com.kazmani.admin;
 
-import com.kazmani.role.IRole;
+import com.kazmani.role.IRole;  
 import com.kazmani.therapist.Therapist;
-import com.kazmani.therapist.TherapistDao;
 import com.kazmani.user.User;
 
 public class AdminDao implements IRole,IAdmin {
@@ -52,6 +51,18 @@ public class AdminDao implements IRole,IAdmin {
 	public String getRole() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public Admin validateTherapist(Therapist thr) {
+	    // TODO Auto-generated method stub
+	    return null;
+	}
+
+	@Override
+	public Admin payTherapistById(double amount, String therapistPhoneNumber) {
+	    // TODO Auto-generated method stub
+	    return null;
 	}
 
 	
